@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+
+#main_container {
+    width: 950px;
+    border: 1px solid black;
+    margin: 10px auto;
+    padding: 10px 10px 10px 120px;
+    background-image: url('./images/notebook.jpg');
+    background-size: 950px;
+}
+
+.input_transp {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid red;
+    text-align: center;
+    font-size: 1em;
+    font-family: 'Gloria Hallelujah', cursive;
+    color: #0048BA;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 2.0em;
+    /* color: #0048BA; */
+    color: #FF2A00;
+    margin-left: -60px;
+}
+
+.form_div {
+    font-size: 2em;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.form_div>p {
+    font-size: 0.7em;
+    /* color: red; */
+    font-family: 'Gloria Hallelujah', cursive;
+    margin: 0;
+}
+
+.form_div>p>span {
+    font-size: 1.5em;
+    color: #FF2A00;
+}
+
+#add1, #add2, #numberOfWave, #cost_of_the_meal, #num1, #num2, #num_of_Fibonacci, #mult1, #mult2, #member_X, #member_N, #num_to_factorial {
+    width: 100px;
+    height: 2em;
+    color: #0048BA;
+}
+
+.result {
+    color: #FF2A00;
+    /* font-size: 3em; */
+}
+
+.button_calc {
+    float: right;
+    margin: 17px 150px 0 0;
+    padding: 10px;
+    width: 100px;
+    border: solid 2px #0048BA;
+    border-radius: 15px 17px 10px 20px;
+    background-color: transparent;
+    font-size: 0.5em;
+    font-weight: 700;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button_calc:hover {
+    background-color: #0048BA;
+    color: white;
+}
+
+.explanation {
+    font-family: 'Satisfy', cursive;
+    font-size: 1.5em;
+    margin-bottom: 2px;
+    margin-left: -30px;
+}
+
+.text_area {
+    background-color: transparent;
+}

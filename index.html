@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&family=Cutive+Mono&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="main_container">
+        <!-- //-------------------------------------- -->
+        <h1>Add two numbers</h1>
+        <p class="explanation">Write a function named "add" which takes two arguments (as input variables) and returns
+            their sum.</p>
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+        <div class="form_div">
+
+            <input id="add1" type="text" class="input_transp">
+            +
+            <input id="add2" type="text" class="input_transp">
+            =
+            <span id='sum' class="result">?</span>
+
+            <button id="calc_sum" class="button_calc">Calculate</button>
+
+        </div>
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+        <!-- //-------------------------------------- -->
+        <h1>Add as many numbers as you want</h1>
+
+        <p class="explanation">Write a function named "add_many" which takes several arguments (as input variables) and
+            returns their sum.</p>
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+        <div class="form_div">
+
+            <p>Enter numbers with one space between</p>
+
+            <input id="nums_toAdd" type="text" name="add_many" class="input_transp">
+
+            <p>Sum of all this numbers is: <span id='sumAll'> ?</span></p>
+
+            <button id="calc_sumOfAll" class="button_calc" style="margin-top: -80px;">Calculate</button>
+
+        </div>
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+        <!-- //-------------------------------------- -->
+        <h1>Multiply two numbers</h1>
+
+        <p class="explanation">Write a function named "multiply" which takes two arguments (as input variables) and
+            returns their product.</p>
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+        <div class="form_div">
+            <input id="mult1" type="text" class="input_transp">
+            *
+            <input id="mult2" type="text" class="input_transp">
+            =
+            <span id='mult_result' class="result">?</span>
+            <button id="calc_mult" class="button_calc">Calculate</button>
+
+        </div>
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+        <h1>Multiply as many numbers as you want</h1>
+
+        <p class="explanation">Write a function named "multiply_many" which takes several arguments (as input variables)
+            and
+            returns multiplication result.</p>
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+        <div class="form_div">
+            <p>Enter numbers with one space between</p>
+            <!-- <label for="mult_many">Enter numbers with one space between</label> -->
+
+            <input id="nums_toMult" type="text" name="mult_many" class="input_transp">
+
+            <p>Multiplication result is: <span id='multAllResult'>?</span></p>
+
+            <button id="calc_multOfAll" class="button_calc" style="margin-top: -80px;">Calculate</button>
+        </div>
+        <!-- //-------------------------------------- -->
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+        <h1>Power/Exponentiation</h1>
+
+        <p class="explanation">Write a function named "power" which takes two arguments ( x and n) and returns the the
+            result of raising x to the nth power.</p>
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+        <div class="form_div">
+
+            <input id="member_X" type="text" class="input_transp">
+            exp
+
+            <input id="member_N" type="text" class="input_transp">
+            =
+            <span id='exp_result' class="result">?</span>
+            <button id="calc_exp" class="button_calc">Power it!</button>
+
+        </div>
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+        <!-- //-------------------------------------- -->
+
+        <h1>Factorial</h1>
+
+        <p class="explanation">Write a function named "factorial" which takes a single argument and returns the
+            factorial of that value.
+        </p>
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+        <div class="form_div">
+            <input id="num_to_factorial" type="text" class="input_transp">
+            ! =
+            <span id="factorial_result" class="result"> ? </span>
+            <div id='show_factorial' class="result" style="width: 550px;"></div>
+            <button id="calc_factorial" class="button_calc" style="margin-top: -50px;">Factorial!</button>
+        </div>
+
+        <!-- //-------------------------------------- -->
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+        <h1>Fibonacci</h1>
+
+        <p class="explanation">Write a function named "Fibonacci" which takes an argument n and returns the nth
+            Fibonacci numbers.</p>
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+        <div class="form_div">
+
+            <p>
+                Show
+                <input id="num_of_Fibonacci" type="text" class="input_transp">
+
+                <span style="color:black; font-size: 1em"> -th Fibonacci number. It would be: </span>
+                <span id='this_fibonacci'> ? </span>
+            </p>
+
+
+            <div id='show_fibonacci' class="result" style="width: 550px; "></div>
+            <button id="calc_fibonacci" class="button_calc" style="margin-top: -50px; ">Fibonacci!</button>
+        </div>
+
+        <!-- //-------------------------------------- -->
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+        <h1>Average</h1>
+
+        <p class="explanation">Write a function named avg that takes 3 (or more) parameters and returns the average of
+            those 3 (or more) numbers.</p>
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+        <div class="form_div">
+
+            <p>Enter numbers with one space between</p>
+            <input id="nums_avg" type="text" name="avg_name" class="input_transp">
+            <p>Average for this numbers is: <span id='avg'>?</span></p>
+            <button id="calc_avg" class="button_calc" style="margin-top: -80px;">Calculate</button>
+        </div>
+
+        <!-- //-------------------------------------- -->
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+        <h1>Greater Than</h1>
+
+        <p class="explanation">Write a function called greaterThan that takes two parameters and returns true if the
+            second parameter is greater than the first. Otherwise the function should return false.</p>
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+        <div class="form_div">
+            <input id="num1" type="text" class="input_transp">
+            <span style="font-size: 0.7em;"> greater than </span>
+            <input id="num2" type="text" class="input_transp"> <span style="font-size: 0.7em;"> Is it true? <br> It's:
+            </span><span id='isGreater' class="result">?</span>
+            <button id="compare" class="button_calc" style="margin-top: -40px;">Compare!</button>
+        </div>
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+        <!-- //-------------------------------------- -->
+        <h1>Second Largest</h1>
+
+        <p class="explanation">Write a function called secondLargest that takes an array and returns the second largest
+            number.</p>
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+
+        <div class="form_div">
+
+            <p>Enter numbers with one space between</p>
+
+            <p class="Enter numbers with one space between"></p>
+
+            <input id="nums_for_secondLargest" type="text" name="secondLargest_name" class="input_transp">
+
+            <p>The second largest for this numbers is: <span id='secondLargest'>?</span></p>
+
+            <button id="calc_secondLargest" class="button_calc" style="margin-top: -80px;">Calculate</button>
+
+        </div>
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+        <!-- //-------------------------------------- -->
+        <h1>Contains Vowel</h1>
+
+        <p class="explanation">Write a function called containsVowel that takes a single string and returns true if
+            there is at least one value or false otherwise.</p>
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+        <div class="form_div">
+
+            <p>Enter any string</p>
+
+            <input id="test_string" type="text" name="containsVowel_name" class="input_transp">
+
+
+            <p>Is this string contain Vowels? <br> <span id='isContain' style="font-size: 1em;">___</span></p>
+
+
+            <p>Here is the <span id='numOfVowels'>__</span> <span style="font-size: 1em;">vowels</span> <span
+                    id='string_with_vowls' style="font-size: 1em;">_</span>
+            </p>
+
+            <button id="calc_containsVowel" class="button_calc" style="margin-top: -80px;">Find out! </button>
+
+        </div>
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+        <!-- //-------------------------------------- -->
+        <h1>Tips</h1>
+
+        <p class="explanation">Jeb eats out at restaurants all the time but is horrible at math. He decides to write a
+            function called tip that accepts a single parameter (the cost of the meal), and should return the tip Jeb
+            should give his waiter. Jeb uses two rules to calculate tips: <br> - First he always tips 20% on the
+            original bill.<br> - He then rounds up to the nearest dollar. For example, if the total with tip is $22.78,
+            he'd round up to $23.00.</p>
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+
+        <div class="form_div">
+            <p>Enter the cost of the meal: $
+
+                <input id="cost_of_the_meal" type="text" name="tips_name" class="input_transp"> </p>
+
+            <p>You should pay the tips : $<span id='tips'>?</span></p>
+
+            <button id="calc_tips" class="button_calc" style="margin-top: -80px;">Calculate</button>
+
+        </div>
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+        <!-- //-------------------------------------- -->
+        <h1>Longest Word</h1>
+
+        <p class="explanation">Write a function called longestWord that takes a single string and returns the longest
+            word in the string.
+        </p>
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+        <div class="form_div">
+
+            <p>Enter some text here:</p>
+
+            <textarea id="some_text" rows="5" cols="70" class="text_area">Some text to test this function</textarea>
+
+            <button id="calc_longest_world" class="button_calc" style="margin-top: 10px;">Calculate </button>
+
+
+            <p>
+                Number of symbols in longest world are: <span id='num_of_symbols'>???</span>
+            </p>
+
+            <p>
+                Here the longest word(s): <span id='longest_word'>???</span>
+            </p>
+        </div>
+
+
+
+
+        <!-- //-------------------------------------- -->
+        <h1>Weave</h1>
+
+        <p class="explanation">Write a function called weave that accepts an input string, str, and a number, 'n'. The
+            function should return the string with every nth character replaced with an 'x'.</p>
+
+        <br>
+
+        <div class="form_div">
+            <textarea id="some_text_weave" rows="5" cols="70" class="text_area"
+                style="color: #0048BA">Some text to test this function</textarea>
+            <p>Number:
+                <input type="text" id='numberOfWave' name='name_of_waveNumber' class="input_transp" value="3"></p>
+
+            <textarea id="some_text_weave_result" rows="5" cols="70" disabled
+                style="margin-top: 15px; color: #FF2A00">Here will be result</textarea>
+
+            <button id="calc_wave" class="button_calc" style="margin-top: -80px;">Weave! </button>
+
+        </div>
+
+
+        <!-- //-------------------------------------- -->
+
+        <h1>Piglatin</h1>
+
+        <p class="explanation">Write a function called piglatin that takes a single string and returns the piglatin
+            version of that string.
+        </p>
+        <div class="form_div">
+            <textarea id="some_text_piglatin" rows="5" cols="70" class="text_area"
+                style="color: #0048BA">Some text to test this function</textarea>
+
+            <textarea id="some_text_piglatin_result" rows="5" cols="70" style="color: #FF2A00" disabled>Here will be result</textarea>
+
+
+
+            <button id="calc_piglatin" class="button_calc" style="margin-top: -40px;">Piglatin! </button>
+
+        </div>
+
+
+
+
+
+        <!-- //-------------------------------------- -->
+    </div>
+    <script src='./main.js'></script>
+</body>
+
+</html>
