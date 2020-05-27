@@ -47,7 +47,7 @@ h1 {
     color: #FF2A00;
 }
 
-#add1, #add2, #numberOfWave, #cost_of_the_meal, #num1, #num2, #num_of_Fibonacci, #mult1, #mult2, #member_X, #member_N, #num_to_factorial {
+#add1, #add2, #numberOfCards, #mult_number_1, #mult_number_2, #numberOfWave, #cost_of_the_meal, #num1, #num2, #num_of_Fibonacci, #mult1, #mult2, #member_X, #member_N, #num_to_factorial {
     width: 100px;
     height: 2em;
     color: #0048BA;

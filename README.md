@@ -19,3 +19,5 @@ link:  https://ev-ran.github.io/JS-Functions-Katas-Collection/.
 *  longest word(s)
 *  weave words
 *  piglatin play
+*  miltiples
+* Black Jack

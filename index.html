@@ -15,6 +15,41 @@
 
 <body>
     <div id="main_container">
+
+
+        <!-- //-------------------------------------- -->
+
+        <h1>Black Jack</h1>
+
+        <p class="explanation">Write a function called blackjack. <br> - Get two random card from card desk - as a first step. [button 'Start'] <br> - Than take cards from desk one by one. [button 'New Card'] <br>
+            Card desk represented by the digits 2 - 9 and the values J, Q, K, and A. In our card desk: [(2-9, J, Q, K, A)*4 = 48 cards]. <br> * If the hand busts (the value of the
+            cards is > 21), return "bust".<br> * If the point toal is 21, return "blackjack". <br> * If it hasn't
+            busted, return the point total. <br> According to the rules of blackjack, an ace can be worth either 1 or
+            11. You should make it 11 unless that causes the hand to bust, in which case it should be 1 (just like if
+            you play in person).
+        </p>
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+        <div class="form_div">
+
+
+            <button id="start_jack" class="button_calc" style="margin-top: 0px;">Start</button>
+
+            <p>Your cards: <span id="array_with_cards"> your cards </span></p>  <br>
+
+            <button id="new_card" class="button_calc" style="margin-top: -40px;">New Card</button>
+
+            <p>Your result: <span id="jack_result"> your result </span></p>
+
+
+            <button id="clean_jack" class="button_calc" style="margin-top: -30px;">Clean </button>
+        </div> <br>
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
         <!-- //-------------------------------------- -->
         <h1>Add two numbers</h1>
         <p class="explanation">Write a function named "add" which takes two arguments (as input variables) and returns
@@ -359,7 +394,8 @@
             <textarea id="some_text_weave" rows="5" cols="70" class="text_area"
                 style="color: #0048BA">Some text to test this function</textarea>
             <p>Number:
-                <input type="text" id='numberOfWave' name='name_of_waveNumber' class="input_transp" value="3"></p>
+                <input type="text" id='numberOfWave' name='name_of_waveNumber' class="input_transp" value="3">
+            </p>
 
             <textarea id="some_text_weave_result" rows="5" cols="70" disabled
                 style="margin-top: 15px; color: #FF2A00">Here will be result</textarea>
@@ -380,7 +416,8 @@
             <textarea id="some_text_piglatin" rows="5" cols="70" class="text_area"
                 style="color: #0048BA">Some text to test this function</textarea>
 
-            <textarea id="some_text_piglatin_result" rows="5" cols="70" style="color: #FF2A00" disabled>Here will be result</textarea>
+            <textarea id="some_text_piglatin_result" rows="5" cols="70" style="color: #FF2A00"
+                disabled>Here will be result</textarea>
 
 
 
@@ -389,10 +426,41 @@
         </div>
 
 
+        <!-- //-------------------------------------- -->
 
 
+        <h1>Miltiples</h1>
+
+        <p class="explanation">Write a function called multiples that accepts two numbers and returns an array of all
+            numbers from 1 - 100 that are evenly divisible by both.
+        </p>
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
+
+        <div class="form_div">
+
+            <input id="mult_number_1" type="text" class="input_transp">
+            and
+            <input id="mult_number_2" type="text" class="input_transp">
+
+            <div id='show_mult_array' class="result" style="width: 550px;">___</div>
+
+            <button id="calc_mult_array" class="button_calc" style="margin-top: -90px;">Calculate</button>
+
+
+        </div>
+
+        <p style="margin: 0;">
+            ------------------------------------------------------------------------------------------------------------------------------------
+        </p>
 
         <!-- //-------------------------------------- -->
+ 
+
+
+
     </div>
     <script src='./main.js'></script>
 </body>

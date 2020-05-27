@@ -68,6 +68,20 @@ let textForPiglatin_Element = document.querySelector("#some_text_piglatin");
 let textResultPiglatin_Element = document.querySelector("#some_text_piglatin_result");
 let piglatin_Button = document.querySelector("#calc_piglatin");
 
+let mult_number_1_Element = document.querySelector("#mult_number_1");
+let mult_number_2_Element = document.querySelector("#mult_number_2");
+let array_mult_Element = document.querySelector("#show_mult_array");
+let mult_array_Button = document.querySelector("#calc_mult_array");
+
+
+let your_cards_Element = document.querySelector("#array_with_cards");
+let your_result_Element = document.querySelector("#jack_result");
+let jack_calculations_array_Element = document.querySelector("#array_jack_calculations");
+let start_jack_Button = document.querySelector("#start_jack");
+let new_card_Button = document.querySelector("#new_card");
+let jack_clean_Button = document.querySelector("#clean_jack");
+
+
 
 
 let sum;
@@ -88,6 +102,7 @@ let arrayWithWords = [];
 let arrayWithVowels = [];
 let arrayNumVowelsAndVowelsArr = [];
 let arrayWithFibonacci = [];
+let array_result = [];
 let counter_for_vowels;
 let cost_of_meal;
 let tips;
@@ -100,6 +115,66 @@ let number_01;
 let number_02;
 let isGreater;
 let word;
+let number_of_cards;
+let current_card;
+let array_of_cards_for_black_jack = [];
+let array_card_deskRemain = [];
+let array_ready_for_new_card = [];
+
+// ------------------------------------------
+start_jack_Button.addEventListener('click', function () {
+
+    // number_of_cards = Number(number_of_cart_Element.value);
+
+    console.log('Hi!');
+
+    start_game_function(); // return 
+
+})
+
+new_card_Button.addEventListener('click', function () {
+
+    console.log('Hi-Hi!');
+    
+    new_card_function(array_ready_for_new_card);
+
+})
+
+jack_clean_Button.addEventListener('click', function () {
+
+    your_cards_Element.innerHTML = '';
+
+    your_result_Element.innerHTML = '';
+
+    array_of_cards_for_black_jack = [];
+
+    deskOfCards_Array = [];
+
+    array_card_deskRemain = [];
+
+    array_ready_for_new_card = [];
+
+})
+
+
+
+
+
+// ------------------------------------------
+
+mult_array_Button.addEventListener('click', function () {
+
+    let number_01 = Number(mult_number_1_Element.value);
+
+    let number_02 = Number(mult_number_2_Element.value);
+
+
+    multiples_function(number_01, number_02) // return array_result
+
+    array_mult_Element.innerHTML = array_result.join(", ");
+
+})
+
 
 // ------------------------------------------
 piglatin_Button.addEventListener('click', function () {
@@ -114,8 +189,6 @@ piglatin_Button.addEventListener('click', function () {
 
 
 })
-
-
 
 // ------------------------------------------
 weave_Button.addEventListener('click', function () {
@@ -710,7 +783,7 @@ function piglatin_function(someString) {
     while (counter < arrayWithWords.length) {
 
         let currentWord = arrayWithWords[counter];
-        
+
         let pigWord = currentWord.slice(1) + currentWord[0] + "ay";
 
         pig_arrayWithWords.push(pigWord);
@@ -721,3 +794,234 @@ function piglatin_function(someString) {
 
     return pig_arrayWithWords;
 }
+
+
+function multiples_function(number_01, number_02) {
+
+    array_result = [];
+
+    if (number_01 * number_02 <= 100) {
+
+        let counter = 1;
+
+        let new_array_member = 0;
+
+        while (number_01 * number_02 * counter <= 100) {
+
+            new_array_member = number_01 * number_02 * counter;
+
+            array_result.push(new_array_member);
+
+            counter++;
+
+        }
+    } else {
+
+        let message = " We have no solution for these numbers. Please choose other numbers."
+
+        array_result.push(message);
+
+    }
+    return array_result;
+}
+
+function start_game_function() {  // function will return 2 random cards from the deck of cards
+
+    array_of_cards_for_black_jack = [];
+
+    let deskOfCards_Array = [2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K", "A", 2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K", "A", 2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K", "A", 2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K", "A"];
+
+    get_random_card_function(deskOfCards_Array); // array_card_deskRemain, where [0] - card, [1] renew deskOfCards_Array
+
+    array_of_cards_for_black_jack.push(array_card_deskRemain[0]); // add first card to the cards for BlackJack
+
+    deskOfCards_Array = array_card_deskRemain[1]; // renew the desk with card (we just take one card from desk)
+
+    get_random_card_function(deskOfCards_Array); // ran the same function - to get the second card (I'm lazy to write loop just fot two cards)
+
+    array_of_cards_for_black_jack.push(array_card_deskRemain[0]);
+
+    deskOfCards_Array = array_card_deskRemain[1];
+
+    calculate_jack(array_of_cards_for_black_jack); // call function to calculate jack_sum. return jack_sum
+
+
+    if (jack_sum < 21) {
+        your_result_Element.innerHTML = jack_sum;
+    } else if (jack_sum > 21) {
+        your_result_Element.innerHTML = "BUST!!!";
+    } else {
+        your_result_Element.innerHTML = "BLACK JACK!!!";
+    }
+
+
+    your_cards_Element.innerHTML = array_of_cards_for_black_jack.toString();
+
+    array_ready_for_new_card = []; // gather information to get new card 
+
+    array_ready_for_new_card.push(array_of_cards_for_black_jack); // array with cards for black jack
+
+    array_ready_for_new_card.push(deskOfCards_Array); //cards that left in desk
+
+
+
+    return array_ready_for_new_card;
+
+}
+
+
+
+function new_card_function(array_ready_for_new_card) {
+
+    array_of_cards_for_black_jack = array_ready_for_new_card[0];
+
+    deskOfCards_Array = array_ready_for_new_card[1];
+
+    get_random_card_function(deskOfCards_Array); // return array_card_deskRemain, where [0] - card, [1] renew deskOfCards_Array
+
+    array_of_cards_for_black_jack.push(array_card_deskRemain[0]); // add first card to the cards for BlackJack
+
+    deskOfCards_Array = array_card_deskRemain[1]; // renew the desk with card (we just take one card from desk)
+
+    calculate_jack(array_of_cards_for_black_jack); // call function to calculate jack_sum. return jack_sum
+
+    if (jack_sum < 21) {
+        your_result_Element.innerHTML = jack_sum;
+    } else if (jack_sum > 21) {
+        your_result_Element.innerHTML = "BUST!!!";
+    } else {
+        your_result_Element.innerHTML = "BLACK JACK!!!";
+    }
+
+
+    your_cards_Element.innerHTML = array_of_cards_for_black_jack.toString();
+
+    array_ready_for_new_card = []; // gather information to get new card 
+
+    array_ready_for_new_card.push(array_of_cards_for_black_jack); // array with cards for black jack
+
+    array_ready_for_new_card.push(deskOfCards_Array); //cards that left in desk
+
+
+
+    return array_ready_for_new_card;
+
+}
+
+
+function calculate_jack(array_of_cards_for_black_jack) {
+
+    counter = 0;
+    jack_sum = 0;
+
+    while (counter < array_of_cards_for_black_jack.length) {
+
+        let current_card = array_of_cards_for_black_jack[counter];
+
+        if (current_card !== "J" && current_card !== "K" && current_card !== "Q" && current_card !== "A") {
+
+            jack_sum += Number(array_of_cards_for_black_jack[counter]);
+
+        } else if (current_card === "J" || current_card === "K" || current_card === "Q") {
+
+            jack_sum += 10;
+
+        } else {
+
+            if (jack_sum + 11 > 21) {
+                jack_sum += 1;
+            } else if (jack_sum + 11 <= 21) {
+                jack_sum += 11;
+            }
+
+        }
+
+        counter++;
+    } // at this point we have jack_sum. Work with this sum
+
+    return jack_sum;
+
+}
+
+function get_random_card_function(deskOfCards_Array) {
+
+    array_card_deskRemain = [];
+
+    let card_number = Math.round((Math.random() * (deskOfCards_Array.length - 1)));
+
+    current_card = deskOfCards_Array[card_number];
+
+    deskOfCards_Array.splice(card_number, 1); //remove this card from the deck of cards
+
+    array_card_deskRemain.push(current_card);
+
+    array_card_deskRemain.push(deskOfCards_Array);
+
+    return array_card_deskRemain;
+
+}
+
+
+// function cardsForBlackJack_function(number_of_cards) {
+
+//     let deskOfCards_Array = [2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K", "A", 2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K", "A", 2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K", "A", 2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K", "A"];
+
+//     // let deskOfCards_Array = [0,1,2,3,4];
+
+//     let card_number = Math.round((Math.random() * (deskOfCards_Array.length - 1)));
+
+//     let counter = 0;
+
+//     array_of_cards_for_black_jack = [];
+
+//     while (counter < number_of_cards) {
+
+//         let card_number = Math.round((Math.random() * (deskOfCards_Array.length - 1)));
+
+//         array_of_cards_for_black_jack.push(deskOfCards_Array[card_number]);
+
+//         deskOfCards_Array.splice(card_number, 1); //remove this card from the deck of cards
+
+//         // console.log(deskOfCards_Array);
+
+//         // console.log(array_of_cards_for_black_jack);
+
+//         counter++;
+
+//     }
+
+//     return array_of_cards_for_black_jack;
+
+// }
+
+// function black_Jack(array_of_cards_for_black_jack) {
+
+//     let counter = 0;
+
+//     let jack_sum = 0;
+
+//     while (counter < array_of_cards_for_black_jack.length) {
+
+//         let current_card = array_of_cards_for_black_jack[counter];
+
+//         if (current_card !== "J" && current_card !== "K" && current_card !== "Q" && current_card !== "A") {
+//             jack_sum += Number(array_of_cards_for_black_jack[counter]);
+
+//             counter++;
+//         } else if (current_card !== "J" || current_card !== "K" || current_card !== "Q") {
+
+//             jack_sum += 10;
+
+//         } else {
+
+//             if (jack_sum + 10 > 21) {
+//                 jack_sum += 1;
+//             } else if (jack_sum + 10 < 21) {
+//                 jack_sum += 10;
+//             }
+
+//         }
+
+
+//     }
+// }
