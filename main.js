@@ -120,6 +120,7 @@ let current_card;
 let array_of_cards_for_black_jack = [];
 let array_card_deskRemain = [];
 let array_ready_for_new_card = [];
+let jack_final_sum;
 
 // ------------------------------------------
 start_jack_Button.addEventListener('click', function () {
@@ -624,7 +625,7 @@ function factorial_function(num_for_factorial) {
 
     while (miltiplicator > 1) {
 
-       factorial = multiply_function(factorial, (miltiplicator - 1)); // factorial = factorial * (miltiplicator - 1); 
+        factorial = multiply_function(factorial, (miltiplicator - 1)); // factorial = factorial * (miltiplicator - 1); 
 
         factorial_array.push(miltiplicator - 1);
 
@@ -908,8 +909,8 @@ function new_card_function(array_ready_for_new_card) {
 
 }
 
-
-function calculate_jack(array_of_cards_for_black_jack) {
+//this function does not change the number for ace. 
+function calculate_jack_OLD_(array_of_cards_for_black_jack) {
 
     counter = 0;
     jack_sum = 0;
@@ -942,6 +943,98 @@ function calculate_jack(array_of_cards_for_black_jack) {
     return jack_sum;
 
 }
+// neew (fixed) function
+function calculate_jack(array_of_cards_for_black_jack) {
+    let counter = 0;
+    jack_sum = 0;
+    let constant_part_of_jack_sum = 0;
+    let sum_of_aces = 0;
+    let number_of_aces = 0;
+
+    while (counter < array_of_cards_for_black_jack.length) {
+
+        let current_card = array_of_cards_for_black_jack[counter];
+
+        if (current_card !== "J" && current_card !== "K" && current_card !== "Q" && current_card !== "A") {
+
+            constant_part_of_jack_sum += Number(array_of_cards_for_black_jack[counter]);
+
+        } else if (current_card === "J" || current_card === "K" || current_card === "Q") {
+
+            constant_part_of_jack_sum += 10;
+
+        } else if (current_card === "A") {
+
+            number_of_aces++;
+
+        }
+
+        counter++;
+    }
+
+    // at this point we have: 1) constant_part_of_jack_sum (sum of numbers and sum of "J", "K", "Q") 
+    //                        2)number of  aces in cards array
+    //-----------------
+    // we may have  0 or 1 or 2 or 3 or 4 number of aces in our array (if we play with standard deck of card)
+    //  so the variable part may be:
+    //         0 aces  :  sum = 0
+    //         1 aces  :  sum = 1 or 11
+    //         0 aces  :  sum = 2 or 12
+    //         0 aces  :  sum = 3 or 13
+    //         0 aces  :  sum = 4 or 14
+
+    if (number_of_aces === 4) {
+
+        if (constant_part_of_jack_sum + 14 <= 21) {
+
+            sum_of_aces = 14;
+
+        } else {
+            sum_of_aces = 4;
+        }
+
+    } else if (number_of_aces === 3) {
+
+        if (constant_part_of_jack_sum + 13 <= 21) {
+
+            sum_of_aces = 13;
+
+        } else {
+            sum_of_aces = 3;
+        }
+
+    } else if (number_of_aces === 2) {
+
+        if (constant_part_of_jack_sum + 12 <= 21) {
+
+            sum_of_aces = 12;
+
+        } else {
+            sum_of_aces = 2;
+        }
+
+    } else if (number_of_aces === 1) {
+
+        if (constant_part_of_jack_sum + 11 <= 21) {
+
+            sum_of_aces = 11;
+
+        } else {
+            sum_of_aces = 1;
+
+        }
+
+    } else {
+
+        sum_of_aces = 0;
+
+    }
+
+    jack_sum = constant_part_of_jack_sum + sum_of_aces;
+
+    return jack_sum;
+
+}
 
 function get_random_card_function(deskOfCards_Array) {
 
@@ -962,66 +1055,3 @@ function get_random_card_function(deskOfCards_Array) {
 }
 
 
-// function cardsForBlackJack_function(number_of_cards) {
-
-//     let deskOfCards_Array = [2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K", "A", 2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K", "A", 2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K", "A", 2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K", "A"];
-
-//     // let deskOfCards_Array = [0,1,2,3,4];
-
-//     let card_number = Math.round((Math.random() * (deskOfCards_Array.length - 1)));
-
-//     let counter = 0;
-
-//     array_of_cards_for_black_jack = [];
-
-//     while (counter < number_of_cards) {
-
-//         let card_number = Math.round((Math.random() * (deskOfCards_Array.length - 1)));
-
-//         array_of_cards_for_black_jack.push(deskOfCards_Array[card_number]);
-
-//         deskOfCards_Array.splice(card_number, 1); //remove this card from the deck of cards
-
-//         // console.log(deskOfCards_Array);
-
-//         // console.log(array_of_cards_for_black_jack);
-
-//         counter++;
-
-//     }
-
-//     return array_of_cards_for_black_jack;
-
-// }
-
-// function black_Jack(array_of_cards_for_black_jack) {
-
-//     let counter = 0;
-
-//     let jack_sum = 0;
-
-//     while (counter < array_of_cards_for_black_jack.length) {
-
-//         let current_card = array_of_cards_for_black_jack[counter];
-
-//         if (current_card !== "J" && current_card !== "K" && current_card !== "Q" && current_card !== "A") {
-//             jack_sum += Number(array_of_cards_for_black_jack[counter]);
-
-//             counter++;
-//         } else if (current_card !== "J" || current_card !== "K" || current_card !== "Q") {
-
-//             jack_sum += 10;
-
-//         } else {
-
-//             if (jack_sum + 10 > 21) {
-//                 jack_sum += 1;
-//             } else if (jack_sum + 10 < 21) {
-//                 jack_sum += 10;
-//             }
-
-//         }
-
-
-//     }
-// }
