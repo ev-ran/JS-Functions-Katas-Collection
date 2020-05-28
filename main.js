@@ -135,7 +135,7 @@ start_jack_Button.addEventListener('click', function () {
 new_card_Button.addEventListener('click', function () {
 
     console.log('Hi-Hi!');
-    
+
     new_card_function(array_ready_for_new_card);
 
 })
@@ -155,9 +155,6 @@ jack_clean_Button.addEventListener('click', function () {
     array_ready_for_new_card = [];
 
 })
-
-
-
 
 
 // ------------------------------------------
@@ -249,7 +246,7 @@ fibonacci_button.addEventListener('click', function () {
 
     thisFibonacci_Element.innerHTML = arrayWithFibonacci[num_for_fibonacci - 1];
 
-    showFibonacci_Element.innerHTML = arrayWithFibonacci.join(" * ");
+    showFibonacci_Element.innerHTML = arrayWithFibonacci.join(", ");
 
 
 })
@@ -276,7 +273,7 @@ exp_Button.addEventListener("click", function () {
     base_X = Number(expX_Element.value);
     exponent_N = Number(expN_Element.value);
 
-    expFunction(base_X, exponent_N); // return expResult
+    power_function(base_X, exponent_N); // return expResult
 
     expXN_Element.innerHTML = expResult;
 
@@ -288,7 +285,7 @@ mult_Button.addEventListener('click', function () {
     mult1Value = Number(mult1_Element.value);
     mult2Value = Number(mult2_Element.value);
 
-    multFunction(mult1Value, mult2Value); // return multresult
+    multiply_function(mult1Value, mult2Value); // return multresult
 
     mult_Element.innerHTML = multresult;
 
@@ -370,7 +367,7 @@ sum_Button.addEventListener('click', function () {
     add1Value = Number(add1_Element.value);
     add2Value = Number(add2_Element.value);
 
-    sumFunction(add1Value, add2Value); //return sum
+    add_function(add1Value, add2Value); //return sum
 
     sum_Element.innerHTML = sum;
 
@@ -478,7 +475,7 @@ function multAll_function(someString) {
 
         mult_member = arrayWithNumbers[counter];
 
-        multFunction(mult_container, mult_member) // return multresult
+        multiply_function(mult_container, mult_member) // return multresult
 
         console.log('***' + multresult);
 
@@ -498,7 +495,7 @@ function multAll_function(someString) {
 }
 
 
-function sumFunction(add1, add2) {
+function add_function(add1, add2) {
 
     sum = (add1 + add2);
 
@@ -577,7 +574,7 @@ function calculateTips(cost_of_meal) {
     return tips;
 }
 
-function multFunction(mult1Value, mult2Value) {
+function multiply_function(mult1Value, mult2Value) {
 
     let counter = 0;
 
@@ -586,7 +583,10 @@ function multFunction(mult1Value, mult2Value) {
     multresult = 0
 
     while (counter < number_ofIteration) {
-        multresult += Number(mult1Value);
+
+        // multresult += Number(mult1Value);
+
+        multresult = add_function(multresult, Number(mult1Value))
 
         counter++;
     }
@@ -594,7 +594,7 @@ function multFunction(mult1Value, mult2Value) {
     return multresult;
 }
 
-function expFunction(base_X, exponent_N) {
+function power_function(base_X, exponent_N) {
 
     let counter = 0;
 
@@ -604,7 +604,7 @@ function expFunction(base_X, exponent_N) {
 
     while (counter < number_ofIteration) {
 
-        expResult *= Number(base_X);
+        expResult = multiply_function(expResult, base_X);  //expResult *= Number(base_X);
 
         counter++;
     }
@@ -624,7 +624,7 @@ function factorial_function(num_for_factorial) {
 
     while (miltiplicator > 1) {
 
-        factorial = factorial * (miltiplicator - 1);
+       factorial = multiply_function(factorial, (miltiplicator - 1)); // factorial = factorial * (miltiplicator - 1); 
 
         factorial_array.push(miltiplicator - 1);
 
@@ -653,13 +653,13 @@ function fibonacci_function(num_for_fibonacci) {
 
     while (counter < num_for_fibonacci) {
 
-        fibonacci_number = arrayWithFibonacci[counter - 2] + arrayWithFibonacci[counter - 1];
+        fibonacci_number = add_function(arrayWithFibonacci[counter - 2], arrayWithFibonacci[counter - 1]);//fibonacci_number = arrayWithFibonacci[counter - 2] + arrayWithFibonacci[counter - 1];
 
-        console.log(fibonacci_number);
+        // console.log(fibonacci_number);
 
         arrayWithFibonacci.push(fibonacci_number);
 
-        console.log(arrayWithFibonacci);
+        // console.log(arrayWithFibonacci);
 
         counter++;
 
