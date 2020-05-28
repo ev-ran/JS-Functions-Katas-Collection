@@ -943,7 +943,7 @@ function calculate_jack_OLD_(array_of_cards_for_black_jack) {
     return jack_sum;
 
 }
-// neew (fixed) function
+// new (fixed) function
 function calculate_jack(array_of_cards_for_black_jack) {
     let counter = 0;
     jack_sum = 0;
@@ -978,10 +978,10 @@ function calculate_jack(array_of_cards_for_black_jack) {
     // we may have  0 or 1 or 2 or 3 or 4 number of aces in our array (if we play with standard deck of card)
     //  so the variable part may be:
     //         0 aces  :  sum = 0
-    //         1 aces  :  sum = 1 or 11
-    //         0 aces  :  sum = 2 or 12
-    //         0 aces  :  sum = 3 or 13
-    //         0 aces  :  sum = 4 or 14
+    //         1 ace   :  sum = 1 or 11
+    //         2 aces  :  sum = 2 or 12
+    //         3 aces  :  sum = 3 or 13
+    //         4 aces  :  sum = 4 or 14
 
     if (number_of_aces === 4) {
 
